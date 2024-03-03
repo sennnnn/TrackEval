@@ -240,7 +240,7 @@ class DAVIS(_BaseDataset):
                     rows, columns = np.where(void_mask_ious > 0)
                     for r in rows:
                         det = mask_utils.decode(raw_data['tracker_dets'][t][r])
-                        void = mask_utils.decode(void_mask).astype(np.bool)
+                        void = mask_utils.decode(void_mask).astype(np.bool_)
                         det[void] = 0
                         det = mask_utils.encode(np.array(det, order='F').astype(np.uint8))
                         raw_data['tracker_dets'][t][r] = det
